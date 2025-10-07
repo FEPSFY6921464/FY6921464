@@ -213,21 +213,31 @@ Campbell, C, Cristianini, N and Smola, A (2000), Query learning with large margi
     window.onload = getLastUpdatedTime;
   </script>
 </body>
-  <p id='totalWordCount"></p>
-    <hr>
-    <script>
-    function displayWordCount (sectionId, outputId){
-    const text= document.getElementById(sectionId).textContent;
-    const wordArray = text.trim().split(/\s+/);
-    const wordCount;
-    }
-  const IntroductionCount = displayWordCount("Introduction_InText");#
-  const AnalysisCount = displayWordCount("Analysis_InText");
-  const totalWordCount = IntroductionCount + AnalysisCount;
-  document.getElementById("totalWordCount").innerText = "Total word count: ${totalWordCount}';
-    }
-    window.onload = displayTotalWordCount
-    </script>
+
+<p id="totalWordCount"></p>
+<hr>
+
+<script>
+  function displayWordCount(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (!element) return 0;
+    const text = element.textContent || '';
+    const words = text.trim().split(/\s+/);
+    return words.filter(word => word.length > 0).length;
+  }
+
+  function displayTotalWordCount() {
+    const IntroductionCount = displayWordCount("Introduction_InText");
+    const AnalysisCount = displayWordCount("Analysis_InText");
+    const totalWordCount = IntroductionCount + AnalysisCount;
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  window.onload = function() {
+    displayTotalWordCount();
+    getLastUpdatedTime(); 
+  };
+</script>
+
     
 </html>
 
