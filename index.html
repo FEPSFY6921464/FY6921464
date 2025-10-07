@@ -58,6 +58,7 @@ adaptive active learning and traditional machine learning approaches. Our result
   
   
   <h3 id="Introduction">Introduction</h3>
+<pre id="Introduction_InText">
 
 
 <p class ="ex1">
@@ -79,6 +80,11 @@ classifier confidence to drop, as in Vlachos (2008).
   </pre>  
   
   <h3 id=”Analysis and discussion”>Analysis and discussion</h3>
+<p id="Analysis_InText">
+
+
+
+  
   Table 1: Data on cost and lifespan of bridge repairs
   <table>
     <tr>
@@ -212,6 +218,17 @@ Campbell, C, Cristianini, N and Smola, A (2000), Query learning with large margi
     <script>
     function displayWordCount (sectionId, outputId){
     const text= document.getElementById(sectionId).textContent;
+    const wordArray = text.trim().split(/\s+/);
+    const wordCount;
+    }
+  const IntroductionCount = displayWordCount("Introduction_InText");#
+  const AnalysisCount = displayWordCount("Analysis_InText");
+  const totalWordCount = IntroductionCount + AnalysisCount;
+  document.getElementById("totalWordCount").innerText = "Total word count: ${totalWordCount}';
+    }
+    window.onload = displayTotalWordCount
+    </script>
+    
 </html>
 
 
