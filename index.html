@@ -7,9 +7,9 @@
   <h1><b>ENG0018 Computer Laboratory 2025/26</b><h1>
   <h2>Student URN:6921464 </h2>
 <hr>
-    <h2 style=”font-family:calibri:”><b>Conference paper: What is needed to make an aircraft 'stealth'?</b></h2>
+    <h2 style=”font-family:calibri;”><b>Conference paper: What is needed to make an aircraft 'stealth'?</b></h2>
  <hr>
-    <!style for tables>
+    <!style for tables
     <style>
 table {
   font-family:arial, sans-serif;
@@ -38,6 +38,30 @@ table {
       margin-left: 250px;
     }
   </style>
+  <style>
+  /* remove default spacing between headings, paragraphs and pre blocks */
+  h1, h2, h3 { margin: 0; padding: 0; }
+  p, pre { margin: 0; padding: 0; }
+
+  /* keep your existing left indent for .ex1 but remove extra top space */
+  .ex1 { margin-left: 250px; margin-top: 0; }
+</style>
+  <style>
+  /* tighten spacing for section headings and the content that follows */
+  h3 { margin: 0; padding: 0; }
+
+  /* remove top margin on the paragraph/pre immediately after an h3 */
+  h3 + p, h3 + p.ex1, h3 + pre, h3 + div, h3 + p > pre {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  /* normalize pre display so it doesn't add unexpected spacing; keep wrapping */
+  pre { margin: 0; padding: 0; white-space: pre-wrap; }
+
+  /* keep your existing left indent for .ex1 */
+  .ex1 { margin-left: 250px; margin-top: 0; }
+</style>
   </head>
  
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,11 +88,9 @@ this being the F-117A. The most notable stealth aircraft is the B-2 Bomber which
 The components of an aircraft which can cause it to fly under the radar are as follows: The shaping of the aircraft’s chassis, Radar absorbing materials, Active Cancellation, 
 Infared Stealth, Plasma Devices
   </pre>  
-  
-  <h3 id=”Shaping of the aircraft’s chassis”>Shaping of the aircraft’s chassis</h3>
-<p id="Shaping of the aircraft’s chassis">
-<p class ="ex1">
- <p> <pre>
+  <!-- changed: use a slug id with straight quotes (no spaces) -->
+  <h3 id="shaping-of-aircraft-chassis">Shaping of the aircrafts chassis</h3>
+<pre>
  The main variable which is to be minimised by the shaping is the radar cross section, this being the area of the aircraft visible to the radar. The RCS (radar cross section) is the 
  measure of a target's ability to reflect radar signals in the direction of the radar receiver (Nicolaescu, L. and Oroian, T. (2001) Radar cross section. In: Proceedings of the 5th 
  International Conference on Telecommunications in Modern Satellite, Cable and Broadcasting Service (TELSIKS 2001). Niš, Yugoslavia, 19–21 September. pp. 65–68). One way this can be 
@@ -77,11 +99,20 @@ Infared Stealth, Plasma Devices
  away from their direction. ( Aronstein, D.C. and Piccirillo, A.C., 1997. Have Blue and the F-117A: Evolution of the Stealth Fighter. Washington, DC: American Institute of Aeronautics 
  and Astronautics.) The elimination of a rudder and an elevator prevent the creation of a retro reflector when in use, therefore absorbing most of the radio waves and not emitting them 
  to prevent the aircraft from appearing on a radar.
-  </pre>
-</p>
-
-  
-  Table 1: Data on cost and lifespan of bridge repairs
+ </pre>
+<h3 id="radar-absorbing-material-ram">Radar absorbing material (RAM)</h3>
+<pre>
+  Radar absorbing material are used to reduce the radar cross section, causing it to appear smaller on a radar. This material contains properties which absorb and conduct incident radar waves. A way of which this material is applied to the aircraft is via bonding or a spray-painting process.( Jha, B.K. and Aswale, M.S. (2016) ‘Mechanical aspects in stealth technology: review’, International Journal of Engineering and Technical Research (IJETR), 4(4), pp. 1–4). Most RAM contain a dielectric; some examples being carbon or magnetic ferrites (iron), these are formed into a plastic. RAM was first developed by Lockheed Martin and used in the A-12 and SR-71.( Dranidis, D.V. (2003) ‘Airborne stealth in a nutshell – Part I’, Waypoint, April/May. Available at: https://img.bemil.chosun.com/nbrd/data/10040/upfile/201001/20100106104428.pdf (Accessed: 20 October 2025).) The RAM works by converting the electromagnetic energy from the radar into heat energy, this is done via electric and magnetic losses within the material. The RAM is designed to work at specific frequencies, therefore multiple layers of RAM are used to cover a wider range of frequencies. ( Jha, B.K. and Aswale, M.S. (2016) ‘Mechanical aspects in stealth technology: review’, International Journal of Engineering and Technical Research (IJETR), 4(4), pp. 1–4).
+</pre>
+ <h3 id="Active Cancellation System">Active Cancellation System</h3>
+ <pre>
+Active Cancellation is a method used to produce a artificial radiation field, containing the same amplitude and frequency but is in opposite phase from the radar’s target field; leading to the radar to receive an identical field without the trace of the target (aircraft) (Xu, S. and Xu, Y. (2014). Research on active cancelation stealth technique. Optik, 125(20), pp.6219–6222. doi:https://doi.org/10.1016/j.ijleo.2014.06.144.(Accessed :20 October 2025)). This method is still in the research phase and has not been implemented into any aircraft to date. The main issue with this method is the time delay between the radar signal being received and the cancellation signal being transmitted; if this delay is too long then the radar will be able to detect the aircraft. (Xu, S. and Xu, Y. (2014). Research on active cancelation stealth technique. Optik, 125(20), pp.6219–6222. doi:https://doi.org/10.1016/j.ijleo.2014.06.144.(Accessed :20 October 2025)).
+ </pre>
+   <h3 id="Infrared Stealth">Infrared Stealth</h3>
+<pre>
+  All objects known to man which release heat produce thermal radiation. This thermal radiation causes the atoms and electrons in the world to get excited and ionised which leads to the creation of electromagnetic waves. The electromagnetic waves are made up of visible light, infrared radiation and microwaves. Infrared radiation have a wavelength of 0.76-1000 μm. Infrared sensors and cameras can be used to see objects which may be invisible to the naked eye. To prevent an aircraft from being spotted they are coated in a ‘Infrared stealth coating’ (Zhou, Y., Rather, L.J., Yu, K., Yang, M., Lu, M. and Li, Q. (2024) ‘Research progress and recent advances in development and applications of infrared stealth materials: A comprehensive review’, Laser & Photonics Reviews, 18(12), p. 2400530. Available at: https://doi.org/10.1002/lpor.202400530 (Accessed: 20 October 2025) which is made of a carbon-based conductive film on a foam like foundation which provides conductivity which allows for the absorption of multiple of infrared waves at different frequencies.( Liu, Y., Zhao, G. and Han, G. (2025) Carbon-based conductive film-based ultralight wide-angle absorbing metamaterial with full-frequency absorption within 2–18 GHz and preparation method thereof. United States Patent Application US20250237786A1. Published 24 July. North University of China). By reducing the emissivity of an aircraft, the surface temperature needs to also be regulated to achieve ‘infrared stealth’, (Kang, M., Wang, X., Wei, Y., Yu, Z. and Liu, Z. (2024) ‘Latest research progress of infrared stealth textiles’, Infrared Physics & Technology, 139, 105313. Available at: https://doi.org/10.1016/j.infrared.2024.105313 (Accessed: 20 October 2025) this is due to Boltzmann’s law which tells us that “the relationship between the emitted power P of the thermal radiation of a blackbody object and the object’s temperature T is P=CT^a where C is a constant(Wellons, M., 2007. The Stefan-Boltzmann Law. Wooster Physics. [online] Available at: https://physics.wooster.edu/wp-content/uploads/2021/08/Junior-IS-Thesis-Web_2007_Wellons.pdf [Accessed 20 October 2025].
+</pre>
+Table 1: Data on cost and lifespan of bridge repairs
   <table>
     <tr>
       <th> £ Cost of repairs</th>
@@ -114,17 +145,25 @@ Infared Stealth, Plasma Devices
       <th><h3>Table of contents</h3></th>
     </tr>
     <tr>
-    <td><a href= "#Abstract">Abstract</a></td>
+      <td><a href="#Abstract">Abstract</a></td>
     </tr>
     <tr>
-    <td><a href= "#Introduction>Introduction</td>
+      <td><a href="#Introduction">Introduction</a></td>
+    </tr>
+    <!-- changed: href matches the slug id above -->
+    <tr>
+      <td><a href="#shaping-of-aircraft-chassis">Shaping of the aircrafts chassis</a></td>      
     </tr>
     <tr>
-    <td><a href= "#Shaping of the aircraft’s chassis">Shaping of the aircraft’s chassis</td>      
+      <td><a href="#radar-absorbing-material-ram">Radar absorbing material (RAM)</a></td>
     </tr>
     <tr>
-    <td><a href="#References">References</td>
-          </tr>      
+    <td><a href="#Active Cancellation System">Active Cancellation System</a></td>
+    </tr>
+    <td><a href="#Infrared Stealth">Infrared Stealth</a></td>
+    <tr>
+    <td><a href="#References">References</a></td>
+    </tr>      
   </table>
 </p>
 <h3 id="References">References</h3>
@@ -214,7 +253,6 @@ Campbell, C, Cristianini, N and Smola, A (2000), Query learning with large margi
 
     
 </html>
-
 
 
 
