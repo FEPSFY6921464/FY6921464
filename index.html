@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conference paper - Stealth</title>
     <style>
-      /* Equal borders on left and right */
+    
       :root { --border-width: 80px; }
       body { 
         margin-left: calc(50px + var(--border-width)); 
         margin-right: calc(50px + var(--border-width)); 
         background-color: #ffffff;
+        font-family: "Calibri", sans-serif;
       }
       
       .left-border {
@@ -38,9 +39,9 @@
       }
 
       table {
-        font-family: "Georgia", serif;
+        font-family: "Calibri", sans-serif;
         border-collapse: collapse;
-        width: 10%;
+        width: 30%;
       }
       td, th {
         border: 3px solid #dddddd;
@@ -52,14 +53,19 @@
       }
       p.ex1 { margin-left: 0px; margin-top: 0; }
       h1, h2, h3 { margin: 0; padding: 0; }
-      h3 { text-decoration: underline; }
+      h1, h2 { text-align: center; }
+      h3 { 
+        text-decoration: underline;
+        margin-bottom: 20px;
+      }
       pre { 
         margin: 0; 
         padding: 0; 
         white-space: pre-wrap; 
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
+        font-family: "Calibri", sans-serif;
       }
-      p { font-size: 1.1rem; }
+      p { font-size: 1.8rem; }
 
       .mySlides { display: none; }
     </style>
@@ -70,17 +76,16 @@
       <img src="WebBanner2023.png" alt="Banner" width="1400" height="350" style="max-width: 100%; height: auto;">
     </div>
 
-    <!-- Left and right borders -->
     <div class="left-border" aria-hidden="true"></div>
     <div class="right-border" aria-hidden="true"></div>
 
     <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
     <h2>Student URN:6921464 </h2>
     <hr>
-    <h2 style="font-family:calibri;"><b>Conference paper: What is needed to make an aircraft 'stealth'?</b></h2>
+    <h2 style="font-family:calibri;"><b>Conference paper: The Technological Foundations of Airborne Stealth</b></h2>
     <hr>
 
-    <table>
+    <table style="width: 250px; border: 2px solid #333; padding: 15px; background-color: #f5f5f5;">
       <tr>
         <th><h3>Table of contents</h3></th>
       </tr>
@@ -125,7 +130,10 @@ Stealth technology was first developed and used in 1977 where Lockheed Martin's 
 The main variable which is to be minimised by the shaping is the radar cross section, this being the area of the aircraft visible to the radar. The radar cross section (RCS) is the measure of a target's ability to reflect radar signals in the direction of the radar receiver<a id="cite-nicolaescu-1"></a><a href="#ref-nicolaescu">(Nicolaescu and Oroian, 2001)</a>. One way this can be utilized is by having smooth surfaces, as if cavities in the chassis were present the radar is able to detect it via the diffraction of the radio waves. Some other major components which affect the radar cross section would be the cockpit but as in the F-117A and the B2-Bomber a low-profile canopy is used; the canopy windows are sloped to scatter the radio waves away from their direction <a id="cite-aronstein-1"></a><a href="#ref-aronstein">(Aronstein and Piccirillo, 1997)</a>. The elimination of a rudder and an elevator prevent the creation of a retro reflector when in use, therefore absorbing most of the radio waves and not emitting them to prevent the aircraft from appearing on a radar.      
     </pre>
     <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 24px;">
-      <table>
+      <table style="width: 40      table ;
+        font-family: "Georgia", serif;
+        border-collapse: collapse;
+      }%;">
          <tr>
            <th>Aircraft Name</th>
            <th>RCS (m^2)</th>
@@ -157,10 +165,10 @@ The main variable which is to be minimised by the shaping is the radar cross sec
       </table>
 
       <p style="font-size: 14px; color: #666; max-width: 400px; line-height: 1.5;">
-        <strong>Table 1:</strong> The relative detectability of stealth and conventional platforms is demonstrated by radar cross sections (RCS) of certain aircraft, naval vessels, and small objects. When compared to bigger conventional aircraft or naval vessels, stealth aircraft like the F-117A, B-2 Spirit, and F-22 Raptor show noticeably lower RCS, demonstrating the usefulness of low-observable design elements.
+        <strong>Table 1:</strong> The relative detectability of stealth and conventional platforms is demonstrated by radar cross sections (RCS) of certain aircraft, naval vessels, and small objects.
       </p>
     </div>
-
+    
     <h3 id="radar-absorbing-material-ram" style="font-size: 32px;">Radar absorbing material (RAM)</h3>
     <pre id="radar-absorbing-material-ram_InText">
 Radar absorbing material are used to reduce the RCS, causing it to appear smaller on a radar. This material contains properties which absorb and conduct incident radar waves. A way of which this material is applied to the aircraft is via bonding or a spray-painting process <a id="cite-jha2016-1"></a><a href="#ref-jha2016">(Jha and Aswale, 2016)</a>. Most RAM contain a dielectric; some examples being carbon or magnetic ferrites (iron) which are formed into a plastic. It was first developed by Lockheed Martin and used in the A-12 and SR-71 <a id="cite-dranidis-1"></a><a href="#ref-dranidis2003">(Dranidis, 2003)</a>. RAM works by converting the electromagnetic energy from the radar into heat energy, this is done via electric and magnetic losses within the material. It is designed to work at specific frequencies, therefore multiple layers of RAM are used to cover a wider range of frequencies <a href="#ref-jha2016">(Jha and Aswale, 2016)</a>.It is one of the most important features as the B2 Spirit has a wingspan of 52.4m but with the RAM its RCS is less than 0.1m.
@@ -178,9 +186,9 @@ Radar absorbing material are used to reduce the RCS, causing it to appear smalle
     <pre id="Active-Cancellation-System_InText">
 Active Cancellation is a method used to produce an artificial radiation field, containing the same amplitude and frequency but is in opposite phase from the radar's target field; leading to the radar receiving an identical field without the trace of the target (aircraft), <a id="cite-xu2014-1"></a><a href="#ref-xu2014">(Xu and Xu, 2014)</a>. This method is still in the research phase and has not been implemented into any aircraft to date. The main issue with this method is the time delay between the radar signal being received and the cancellation signal being transmitted; if this delay is too long then the radar will be able to detect the aircraft. <a href="#ref-xu2014">(Xu and Xu, 2014)</a>.
     </pre>
-    <!-- Table with caption to the right -->
+
     <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 24px;">
-      <table>
+      <table style="width: 70%;">
          <thead>
          <tr>
            <th>Degree</th>
@@ -253,7 +261,7 @@ All objects known to man which release heat produce thermal radiation. This ther
 
     <h3 id="Conclusion" style="font-size: 32px;">Conclusion</h3>
     <pre id="Conclusion_InText">
-Ultimately, advances in airborne stealth transformed the face of modern military aviation and represent the foundation of aircraft employment in the twenty-first century to avoid detection across electromagnetic and infrared spectrums. By integrating low observable RCS, fighter design and aerodynamics shaping, radar-absorbing materials, infrared signature management, and ongoing advances in active cancellation, avoidance is achieved by addressing observables that absorb, refract, or negate whatever is projected in the direction of an aircraft. Each domain functions through known variables that merely seek to absorb, deflect, and negate what's detectable. While the theoretical—and realistic—unattainability of invisibility exists, social and materials gains and processing find a way to enhance the instantaneous feasibility of such systems. Airborne stealth is a constantly evolving multidisciplinary, technologically impressive achievement that only stands to be more successful as tracking and detection systems become more invasive and sophisticated.
+Ultimately, advances in airborne stealth transformed the face of modern military aviation and represent the foundation of aircraft employment in the twenty-first century to avoid detection across electromagnetic and infrared spectrums. By integrating low observable RCS, fighter design and aerodynamics shaping, radar-absorbing materials, infrared signature management, and ongoing advances in active cancellation, avoidance is achieved by addressing observables that absorb, refract, or negate whatever is projected in the direction of an aircraft. Airborne stealth is a constantly evolving multidisciplinary, technologically impressive achievement that only stands to be more successful as tracking and detection systems become more invasive and sophisticated.
     </pre>
 
     <h3 id="References">References</h3>
@@ -327,7 +335,15 @@ Ultimately, advances in airborne stealth transformed the face of modern military
         const InfraredStealthCount = displayWordCount("Infrared-Stealth_InText");
         const ConclusionCount = displayWordCount("Conclusion_InText");
 
-        const totalWordCount = IntroductionCount + shapingofaircraftchassisCount + radarabsorbingmaterialramCount + ActiveCancellationSystemCount + InfraredStealthCount + ConclusionCount;
+        const allCaptions = document.querySelectorAll('p[style*="font-size: 14px"]');
+        let captionCount = 0;
+        allCaptions.forEach(caption => {
+          const text = caption.textContent;
+          const wordArray = text.trim().split(/\s+/);
+          captionCount += wordArray.length;
+        });
+
+        const totalWordCount = IntroductionCount + shapingofaircraftchassisCount + radarabsorbingmaterialramCount + ActiveCancellationSystemCount + InfraredStealthCount + ConclusionCount + captionCount;
 
         document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
       }
