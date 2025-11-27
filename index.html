@@ -44,19 +44,21 @@
         width: 30%;
       }
       td, th {
-        border: 3px solid #dddddd;
+        border: 1px solid #cccccc;
         text-align: left;
         padding: 8px;
       }
       tr:nth-child(even) {
-        background-color: #dddddd;
+        background-color: #f5f5f5;
       }
       p.ex1 { margin-left: 0px; margin-top: 0; }
       h1, h2, h3 { margin: 0; padding: 0; }
       h1, h2 { text-align: center; }
       h3 { 
-        text-decoration: underline;
+        text-decoration: none;
         margin-bottom: 20px;
+        border-bottom: 2px solid #333;
+        padding-bottom: 10px;
       }
       pre { 
         margin: 0; 
@@ -73,7 +75,7 @@
   <body>
    
     <div style="text-align: center; margin-bottom: 20px;">
-      <img src="download.png" alt="Banner" width="1400" height="350" style="max-width: 100%; height: auto;">
+      <img src="WebBanner2023.png" alt="Banner" width="1400" height="350" style="max-width: 100%; height: auto;">
     </div>
 
     <div class="left-border" aria-hidden="true"></div>
@@ -85,35 +87,44 @@
     <h2 style="font-family:calibri;"><b>Conference paper: The Technological Foundations of Airborne Stealth</b></h2>
     <hr>
 
-    <table style="width: 250px; border: 2px solid #333; padding: 15px; background-color: #f5f5f5;">
-      <tr>
-        <th><h3>Table of contents</h3></th>
-      </tr>
-      <tr>
-        <td><a href="#Abstract">Abstract</a></td>
-      </tr>
-      <tr>
-        <td><a href="#Introduction">Introduction</a></td>
-      </tr>
-      <tr>
-        <td><a href="#shaping-of-aircraft-chassis">Shaping of the aircrafts chassis</a></td>      
-      </tr>
-      <tr>
-        <td><a href="#radar-absorbing-material-ram">Radar absorbing material (RAM)</a></td>
-      </tr>
-      <tr>
-        <td><a href="#Active Cancellation System">Active Cancellation System</a></td>
-      </tr>
-      <tr>
-        <td><a href="#Infrared Stealth">Infrared Stealth</a></td>
-      </tr>
-      <tr>
-        <td><a href="#References">References</a></td>
-      </tr> 
-      <tr>
-        <td><a href="#Conclusion">Conclusion</a></td>
-      </tr>     
-    </table>
+    <div style="display: flex; gap: 120px; align-items: flex-start; margin-bottom: 30px;">
+      <table style="width: 350px; border: 2px solid #333; padding: 20px; background-color: #f5f5f5;">
+        <tr>
+          <th style="padding: 15px;"><h3 style="font-size: 28px; margin: 0;">Table of contents</h3></th>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#Abstract">Abstract</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#Introduction">Introduction</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#shaping-of-aircraft-chassis">Shaping of the aircrafts chassis</a></td>      
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#radar-absorbing-material-ram">Radar absorbing material (RAM)</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#Active Cancellation System">Active Cancellation System</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#Infrared Stealth">Infrared Stealth</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#References">References</a></td>
+        </tr> 
+        <tr>
+          <td style="padding: 12px; font-size: 18px;"><a href="#Conclusion">Conclusion</a></td>
+        </tr>     
+      </table>
+
+      <div style="display: flex; flex-direction: column; gap: 300px;">
+        <video width="800" height="450" controls style="border: 1px solid #ddd; padding: 4px; background: #fff;">
+          <source src="Stealth presentation.mp4" type="video/mp4">
+  
+        </video>
+      </div>
+    </div>
 
     <h3 id="Abstract" style="font-size: 32px;">Abstract</h3>
     <p class="ex1"><pre>
@@ -180,7 +191,7 @@ The main variable which is to be minimised by the shaping is the radar cross sec
 Radar absorbing material are used to reduce the RCS, causing it to appear smaller on a radar. This material contains properties which absorb and conduct incident radar waves. A way of which this material is applied to the aircraft is via bonding or a spray-painting process <a id="cite-jha2016-1"></a><a href="#ref-jha2016">(Jha and Aswale, 2016)</a>. It was first developed by Lockheed Martin and used in the A-12 and SR-71 <a id="cite-dranidis-1"></a><a href="#ref-dranidis2003">(Dranidis, 2003)</a>. RAM works by converting the electromagnetic energy from the radar into heat energy, this is done via electric and magnetic losses within the material. It is designed to work at specific frequencies, therefore multiple layers of RAM are used to cover a wider range of frequencies <a href="#ref-jha2016">(Jha and Aswale, 2016)</a>.It is one of the most important features as the B2 Spirit has a wingspan of 52.4m but with the RAM its RCS is less than 0.1m.
     </pre>
 
-    <div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 1px; margin-bottom: 24px;">
+    <div style="display: flex; gap: 180px; align-items: flex-start; margin-top: 1px; margin-bottom: 24px;">
       <div style="display: flex; gap: 20px; align-items: flex-start;">
         <img src="RAM.jpg" alt="RAM illustration" style="width: 520px; height: auto; border: 1px solid #ddd; padding: 4px; background: #fff;">
         <p style="font-size: 14px; color: #666; max-width: 300px; line-height: 1.5;">
@@ -264,9 +275,9 @@ Active Cancellation is a method used to produce an artificial radiation field, c
 
     <h3 id="Infrared Stealth" style="font-size: 32px;">Infrared Stealth</h3>
     <pre id="Infrared-Stealth_InText">
-All objects known to man which release heat produce thermal radiation. This thermal radiation causes the atoms and electrons in the world to get excited and ionised which leads to the creation of electromagnetic waves. The electromagnetic waves are made up of visible light, infrared radiation and microwaves. Infrared radiation have a wavelength of 0.76-1000 μm. Infrared sensors and cameras can be used to see objects which may be invisible to the naked eye. To prevent an aircraft from being spotted they are coated in a 'Infrared stealth coating' <a id="cite-zhou2024-1"></a><a href="#ref-zhou2024">(Zhou et al., 2024)</a>, which is made of a carbon-based conductive film on a foam like foundation which provides conductivity which allows for the absorption of multiple of infrared waves at different frequencies<a id="cite-liu2025-1"></a><a href="#ref-liu2025">(Liu, Zhao and Han, 2025)</a>. By reducing the emissivity of an aircraft, the surface temperature needs to also be regulated to achieve 'infrared stealth', <a id="cite-kang2024-1"></a><a href="#ref-kang2024">(Kang et al., 2024)</a> this is due to Boltzmann's law which tells us that "the relationship between the emitted power P of the thermal radiation of a blackbody object and the object's temperature T is P=CT^a where C is a constant."  <a id="cite-wellons2007-1"></a><a href="#ref-wellons2007">(Wellons, 2007)</a>. Therefore by reducing the temperature of the aircraft the emitted power is also reduced leading to a lower infrared signature.
+All objects known to man which release heat produce thermal radiation. This thermal radiation causes the atoms and electrons in the world to get excited and ionised which leads to the creation of electromagnetic waves. The electromagnetic waves are made up of visible light, infrared radiation and microwaves. Infrared radiation have a wavelength of 0.76-1000 μm. Infrared sensors and cameras can be used to see objects which may be invisible to the naked eye. To prevent an aircraft from being spotted they are coated in a 'Infrared stealth coating' <a id="cite-zhou2024-1"></a><a href="#ref-zhou2024">(Zhou et al., 2024)</a>, which is made of a carbon-based conductive film on a foam like foundation which provides conductivity which allows for the absorption of multiple of infrared waves at different frequencies<a id="cite-liu2025-1"></a><a href="#ref-liu2025">(Liu, Zhao and Han, 2025)</a>. By reducing the emissivity of an aircraft, the surface temperature needs to also be regulated to achieve 'infrared stealth', <a id="cite-kang2024-1"></a><a href="#ref-kang2024">(Kang et al., 2024)</a> this is due to Boltzmann's law which tells us that "the relationship between the emitted power P of the thermal radiation of a blackbody object and the object's temperature T is P=CTᵃ where C is a constant."  <a id="cite-wellons2007-1"></a><a href="#ref-wellons2007">(Wellons, 2007)</a>. Therefore by reducing the temperature of the aircraft the emitted power is also reduced leading to a lower infrared signature.
     </pre>
-    <div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 4px; margin-bottom: 24px;">
+    <div style="display: flex; gap: 200px; align-items: flex-start; margin-top: 4px; margin-bottom: 24px;">
       <div style="display: flex; gap: 20px; align-items: flex-start;">
         <img src="Infrared Steath.png" alt="Infrared illustration" style="width: 400px; height: auto; border: 1px solid #ddd; padding: 4px; background: #fff;">
         <p style="font-size: 14px; color: #666; max-width: 300px; line-height: 1.5;">
