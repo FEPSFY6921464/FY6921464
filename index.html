@@ -6,12 +6,25 @@
     <title>Conference paper - Stealth</title>
     <style>
     
-      :root { --border-width: 80px; }
+      :root { 
+        --border-width: 80px;
+        --content-max-width: 1400px;
+      }
+      
       body { 
-        margin-left: calc(50px + var(--border-width)); 
-        margin-right: calc(50px + var(--border-width)); 
+        margin: 0;
+        padding: 0;
         background-color: #ffffff;
         font-family: "Calibri", sans-serif;
+        overflow-x: hidden;
+      }
+      
+      .content-wrapper {
+        max-width: var(--content-max-width);
+        margin: 0 auto;
+        padding-left: calc(50px + var(--border-width));
+        padding-right: calc(50px + var(--border-width));
+        box-sizing: border-box;
       }
       
       .left-border {
@@ -41,354 +54,463 @@
       table {
         font-family: "Calibri", sans-serif;
         border-collapse: collapse;
-        width: 30%;
+        width: 100%;
+        max-width: 600px;
+        border: 2px solid #000000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
       td, th {
         border: 1px solid #cccccc;
         text-align: left;
         padding: 8px;
+        font-size: clamp(12px, 1.5vw, 16px);
       }
       tr:nth-child(even) {
         background-color: #f5f5f5;
       }
+      
+      img {
+        border: 2px solid #000000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        height: auto;
+      }
+      
+      video {
+        border: 2px solid #000000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .toc {
+        width: 100%;
+        max-width: 350px;
+        min-width: 280px;
+        padding: 20px;
+        background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%);
+        border-radius: 0px;
+        border: 2px solid #000000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .toc strong {
+        display: block;
+        font-size: clamp(20px, 2.5vw, 28px);
+        color: #000000;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+      .toc ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .toc li {
+        margin: 8px 0;
+        padding: 12px;
+        font-size: clamp(14px, 1.8vw, 18px);
+      }
+      .toc a {
+        color: #000000;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      .toc a:hover {
+        color: #000000;
+        background: rgba(0, 0, 0, 0.05);
+      }
+      
+      .flex-container {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+      
+      .flex-item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+        min-width: 300px;
+      }
+      
       p.ex1 { margin-left: 0px; margin-top: 0; }
-      h1, h2, h3 { margin: 0; padding: 0; }
-      h1, h2 { text-align: center; }
+      h1, h2, h3 { 
+        margin: 0; 
+        padding: 0; 
+      }
+      h1 { 
+        text-align: center;
+        font-size: clamp(24px, 4vw, 36px);
+      }
+      h2 { 
+        text-align: center;
+        font-size: clamp(18px, 3vw, 28px);
+      }
       h3 { 
         text-decoration: none;
         margin-bottom: 20px;
         border-bottom: 2px solid #333;
         padding-bottom: 10px;
+        font-size: clamp(20px, 3.5vw, 32px);
       }
       pre { 
         margin: 0; 
         padding: 0; 
         white-space: pre-wrap; 
-        font-size: 1.2rem;
+        font-size: clamp(14px, 1.5vw, 18px);
         font-family: "Calibri", sans-serif;
+        line-height: 1.6;
       }
-      p { font-size: 1.8rem; }
+      p { 
+        font-size: clamp(12px, 1.5vw, 16px);
+        line-height: 1.6;
+      }
+      
+      .banner-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 1200px) {
+        :root {
+          --border-width: 40px;
+        }
+        .flex-container {
+          gap: 20px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        :root {
+          --border-width: 20px;
+        }
+        .content-wrapper {
+          padding-left: calc(20px + var(--border-width));
+          padding-right: calc(20px + var(--border-width));
+        }
+        .flex-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .toc {
+          max-width: 100%;
+        }
+      }
 
       .mySlides { display: none; }
     </style>
   </head>
   <body>
-   
-    <div style="text-align: center; margin-bottom: 20px;">
-      <img src="WebBanner2023.png" alt="Banner" width="1400" height="350" style="max-width: 100%; height: auto;">
-    </div>
-
-    <div class="left-border" aria-hidden="true"></div>
-    <div class="right-border" aria-hidden="true"></div>
-
-    <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
-    <h2>Student URN:6921464 </h2>
-    <hr>
-    <h2 style="font-family:calibri;"><b>Conference paper: The Technological Foundations of Airborne Stealth</b></h2>
-    <hr>
-
-    <div style="display: flex; gap: 120px; align-items: flex-start; margin-bottom: 30px;">
-      <table style="width: 350px; border: 2px solid #333; padding: 20px; background-color: #f5f5f5;">
-        <tr>
-          <th style="padding: 15px;"><h3 style="font-size: 28px; margin: 0;">Table of contents</h3></th>
-        </tr>
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#Abstract">Abstract</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#Introduction">Introduction</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#shaping-of-aircraft-chassis">Shaping of the aircrafts chassis</a></td>      
-        </tr>
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#radar-absorbing-material-ram">Radar absorbing material (RAM)</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#Active Cancellation System">Active Cancellation System</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#Infrared Stealth">Infrared Stealth</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#References">References</a></td>
-        </tr> 
-        <tr>
-          <td style="padding: 12px; font-size: 18px;"><a href="#Conclusion">Conclusion</a></td>
-        </tr>     
-      </table>
-
-      <div style="display: flex; flex-direction: column; gap: 300px;">
-        <video width="800" height="450" controls style="border: 1px solid #ddd; padding: 4px; background: #fff;">
-          <source src="Stealth presentation.mp4" type="video/mp4">
-  
-        </video>
+    <div class="content-wrapper">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <img src="WebBanner2023.png" alt="Banner" class="banner-img">
       </div>
-    </div>
 
-    <h3 id="Abstract" style="font-size: 32px;">Abstract</h3>
-    <p class="ex1"><pre>
-This paper examines the core technologies that enable airborne stealth and their role in reducing aircraft detectability across radar and infrared spectrums. Originating with the F-117A in 1977, stealth design has advanced through innovations in aircraft shaping, radar-absorbing materials (RAM), active cancellation methods, and infrared suppression techniques. Each element contributes to minimizing the radar cross section and thermal signature by absorbing, scattering, or negating emitted signals. Emerging materials such as carbon-based composites and advanced coatings have further improved low observability and operational effectiveness. Although complete invisibility remains unachievable, the integration of these systems provides modern aircraft with a significant tactical advantage by delaying or preventing detection in complex threat environments.
-    </pre></p>
+      <div class="left-border" aria-hidden="true"></div>
+      <div class="right-border" aria-hidden="true"></div>
 
-    <h3 id="Introduction" style="font-size: 32px;">Introduction</h3>
-    <pre id="Introduction_InText">
+      <h1><b>ENG0018 Computer Laboratory 2025/26</b></h1>
+      <h2>Student URN:6921464 </h2>
+      <hr>
+      <h2 style="font-family:calibri;"><b>Conference paper: The Technological Foundations of Airborne Stealth</b></h2>
+      <hr>
+
+      <div style="display: flex; gap: 60px; align-items: flex-start; margin-bottom: 10px;">
+        <div class="toc">
+          <strong>Table of contents</strong>
+          <ul>
+            <li><a href="#Abstract">Abstract</a></li>
+            <li><a href="#Introduction">Introduction</a></li>
+            <li><a href="#shaping-of-aircraft-chassis">Shaping of the aircrafts chassis</a></li>      
+            <li><a href="#radar-absorbing-material-ram">Radar absorbing material (RAM)</a></li>
+            <li><a href="#Active Cancellation System">Active Cancellation System</a></li>
+            <li><a href="#Infrared Stealth">Infrared Stealth</a></li>
+            <li><a href="#Conclusion">Conclusion</a></li>   
+            <li><a href="#References">References</a></li>
+          </ul>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <video width="1000" height="562" controls style="padding: 10px; background: #fff;">
+            <source src="Stealth presentation.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <h3 id="Abstract" style="font-size: 32px;">Abstract</h3>
+      <p class="ex1"><pre>
+This paper examines the core technologies that enable airborne stealth and their role in reducing aircraft detectability across radar and infrared spectrums. Originating with the F-117A in 1977, stealth design has advanced through innovations in aircraft shaping, radar-absorbing materials (RAM), active cancellation methods, and infrared suppression techniques. Each element contributes to minimizing the radar cross section and thermal signature by absorbing or scattering signals. Emerging materials such as carbon-based composites and advanced coatings have further improved low observability and operational effectiveness. Although complete invisibility remains unachievable, the integration of these systems provides modern aircraft with a significant tactical advantage by delaying or preventing detection in complex threat environments.
+      </pre></p>
+
+      <h3 id="Introduction" style="font-size: 32px;">Introduction</h3>
+      <pre id="Introduction_InText">
 Stealth technology was first developed and used in 1977 where Lockheed Martin’s Skunks Work division was able to create an aircraft which was virtually undetectable to radars; this being the F-117A. The most notable stealth aircraft is the B-2 Bomber which was first introduced in 1988 and is still being used for surveillance and other uses to this day. The components of an aircraft which can cause it to fly under the radar are as follows: The shaping of the aircraft’s chassis, radar absorbing materials, active Cancellation & infared Stealth.
-    </pre>  
+      </pre>  
 
-    <h3 id="shaping-of-aircraft-chassis" style="font-size: 32px;">Shaping of the aircrafts chassis</h3>
-    <pre id="shaping-of-aircraft-chassis_InText">
+      <h3 id="shaping-of-aircraft-chassis" style="font-size: 32px;">Shaping of the aircrafts chassis</h3>
+      <pre id="shaping-of-aircraft-chassis_InText">
 The main variable which is to be minimised by the shaping is the radar cross section, this being the area of the aircraft visible to the radar. The radar cross section (RCS) is the measure of a target's ability to reflect radar signals in the direction of the radar receiver<a id="cite-nicolaescu-1"></a><a href="#ref-nicolaescu">(Nicolaescu and Oroian, 2001)</a>. One way this can be utilized is by having smooth surfaces, as if cavities in the chassis were present the radar is able to detect it via the diffraction of the radio waves; other major components which affect the radar cross section would be the cockpit but as in the F-117A and the B2-Bomber a low-profile canopy is used; the canopy windows are sloped to scatter the radio waves away from their direction <a id="cite-aronstein-1"></a><a href="#ref-aronstein">(Aronstein and Piccirillo, 1997)</a>. It is one of the most important features as the B2 Spirit has a wingspan of 52.4m but with the RAM its RCS is less than 0.1m. Table 1 below illustrates the RCS values of various aircraft, demonstrating the effectiveness of stealth shaping compared to conventional designs.
-    </pre>
-    <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 24px;">
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <p style="font-size: 14px; color: #666; line-height: 1.5;">
-          <strong>Table 1:</strong> The relative detectability of stealth and conventional platforms is demonstrated by radar cross sections (RCS) of certain aircraft, naval vessels, and small objects.
-        </p>
+      </pre>
+      <div style="display: flex; gap: 80px; align-items: flex-start; margin-bottom: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <table style="width: 100%;">
+            <tr>
+              <th>Aircraft Name</th>
+              <th>RCS (m^2)</th>
+            </tr>
+            <tr>
+              <td>B-2 Spirit</td>
+              <td>0,1 or less</td>
+            </tr>
+            <tr>
+              <td>F-117A Nighthawk</td>
+              <td>0,025 or less</td>    
+            </tr>
+            <tr>
+              <td>F-22 Raptor</td>
+              <td>0,0001 – 0,0005</td>
+            </tr>
+            <tr>
+              <td>Navy cruiser (length 200m)</td>
+              <td>14000</td>
+            </tr>
+            <tr>
+              <td>Β-52 Stratofortress</td>
+              <td>100 – 125</td>
+            </tr> 
+            <tr>
+              <td>Insect</td>
+              <td>0,00001</td>
+            </tr>
+          </table>
+
+          <p style="font-size: 14px; color: #666; line-height: 1.5; margin-top: 8px;">
+            <strong>Table 1:</strong> The relative detectability of stealth and conventional platforms is demonstrated by radar cross sections (RCS) of certain aircraft, naval vessels, and small objects.
+          </p>
+        </div>
         
-        <table style="width: 100%;">
-           <tr>
-             <th>Aircraft Name</th>
-             <th>RCS (m^2)</th>
-           </tr>
-           <tr>
-             <td>B-2 Spirit</td>
-             <td>0,1 or less</td>
-           </tr>
-           <tr>
-             <td>F-117A Nighthawk</td>
-             <td>0,025 or less</td>    
-           </tr>
-           <tr>
-             <td>F-22 Raptor</td>
-             <td>0,0001 – 0,0005</td>
-           </tr>
-           <tr>
-             <td>Navy cruiser (length 200m)</td>
-             <td>14000</td>
-           </tr>
-           <tr>
-             <td>Β-52 Stratofortress</td>
-             <td>100 – 125</td>
-           </tr> 
-           <tr>
-             <td>Insect</td>
-             <td>0,00001</td>
-           </tr>
-        </table>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <img src="F-22.jpg" alt="F-22 illustration" style="width: 500px; height: auto; padding: 4px; background: #fff;">
+          <p style="font-size: 14px; color: #666; max-width: 500px; line-height: 1.5;">
+            <strong>Figure 1:</strong> F-22 Raptor demonstrating advanced stealth design features
+          </p>
+        </div>
       </div>
-      
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <img src="F-22.jpg" alt="F-22 illustration" style="width: 500px; height: auto; border: 1px solid #ddd; padding: 4px; background: #fff;">
-        <p style="font-size: 14px; color: #666; max-width: 500px; line-height: 1.5;">
-          <strong>Figure 1:</strong> F-22 Raptor demonstrating advanced stealth design features
-        </p>
-      </div>
-    </div>
 
-    <h3 id="radar-absorbing-material-ram" style="font-size: 32px;">Radar absorbing material (RAM)</h3>
-    <pre id="radar-absorbing-material-ram_InText">
+      <h3 id="radar-absorbing-material-ram" style="font-size: 32px;">Radar absorbing material (RAM)</h3>
+      <pre id="radar-absorbing-material-ram_InText">
 Radar absorbing material are used to reduce the RCS, causing it to appear smaller on a radar. This material contains properties which absorb and conduct incident radar waves. A way of which this material is applied to the aircraft is via bonding or a spray-painting process <a id="cite-jha2016-1"></a><a href="#ref-jha2016">(Jha and Aswale, 2016)</a>. It was first developed by Lockheed Martin and used in the A-12 and SR-71 <a id="cite-dranidis-1"></a><a href="#ref-dranidis2003">(Dranidis, 2003)</a>. RAM works by converting the electromagnetic energy from the radar into heat energy, this is done via electric and magnetic losses within the material. It is designed to work at specific frequencies, therefore multiple layers of RAM are used to cover a wider range of frequencies <a href="#ref-jha2016">(Jha and Aswale, 2016)</a>.It is one of the most important features as the B2 Spirit has a wingspan of 52.4m but with the RAM its RCS is less than 0.1m.
-    </pre>
+      </pre>
 
-    <div style="display: flex; gap: 180px; align-items: flex-start; margin-top: 1px; margin-bottom: 24px;">
-      <div style="display: flex; gap: 20px; align-items: flex-start;">
-        <img src="RAM.jpg" alt="RAM illustration" style="width: 520px; height: auto; border: 1px solid #ddd; padding: 4px; background: #fff;">
-        <p style="font-size: 14px; color: #666; max-width: 300px; line-height: 1.5;">
-          <strong>Figure 2:</strong> Radar absorbing material (RAM) structure — layered composite design for broadband frequency absorption.<a id="cite-Setua-et-al-1"></a><a href="#ref-setua2020">(Setua et al, 2020)</a>
-        </p>
+      <div style="display: flex; gap: 80px; align-items: flex-start; margin-top: 1px; margin-bottom: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+          <img src="RAM.jpg" alt="RAM illustration" style="width: 520px; height: auto; padding: 4px; background: #fff;">
+          <p style="font-size: 14px; color: #666; max-width: 520px; line-height: 1.5; text-align: center;">
+            <strong>Figure 2:</strong> Radar absorbing material (RAM) structure — layered composite design for broadband frequency absorption.<a id="cite-Setua-et-al-1"></a><a href="#ref-setua2020">(Setua et al, 2020)</a>
+          </p>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+          <img src="RAM 2.jpg" alt="RAM 2 illustration" style="width: 480px; height: auto; padding: 4px; background: #fff;">
+          <p style="font-size: 14px; color: #666; max-width: 480px; line-height: 1.5; text-align: center;">
+            <strong>Figure 3:</strong> The active mechanisms of a radar absorbing material<a id="cite-ruiz2022-1"></a><a href="#ref-ruiz2022">(Ruiz-Perez et al., 2022)</a>
+          </p>
+        </div>
       </div>
-      
-      <div style="display: flex; gap: 20px; align-items: flex-start;">
-        <img src="RAM 2.jpg" alt="RAM 2 illustration" style="width: 520px; height: auto; border: 1px solid #ddd; padding: 4px; background: #fff;">
-        <p style="font-size: 14px; color: #666; max-width: 300px; line-height: 1.5;">
-          <strong>Figure 3:</strong>The active mechanisms of a radar absorbing material<a id="cite-ruiz2022-1"></a><a href="#ref-ruiz2022">(Ruiz-Perez et al., 2022)</a>
-        </p>
-      </div>
-    </div>
 
-    <h3 id="Active Cancellation System" style="font-size: 32px;">Active Cancellation System</h3>
-    <pre id="Active-Cancellation-System_InText">
+      <h3 id="Active Cancellation System" style="font-size: 32px;">Active Cancellation System</h3>
+      <pre id="Active-Cancellation-System_InText">
 Active Cancellation is a method used to produce an artificial radiation field, containing the same amplitude and frequency but is in opposite phase from the radar's target field; leading to the radar receiving an identical field without the trace of the target (aircraft), <a id="cite-xu2014-1"></a><a href="#ref-xu2014">(Xu and Xu, 2014)</a>. This method is still in the research phase and has not been implemented into any aircraft to date. The main issue with this method is the time delay between the radar signal being received and the cancellation signal being transmitted; if this delay is too long then the radar will be able to detect the aircraft. <a href="#ref-xu2014">(Xu and Xu, 2014)</a>.
-    </pre>
+      </pre>
 
-    <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 24px;">
-      <table style="width: 70%;">
-         <thead>
-         <tr>
-           <th>Degree</th>
-           <th>Frequency (GHz)</th>
-           <th>Original Average Scatter σ₀ (dBsm)</th>
-           <th>Cancelled Average Scatter σ (dBsm)</th>
-           <th>Difference σ − σ₀ (dB)</th>
-         </tr>
-       </thead>
-       <tbody>
-         <tr>
-           <td rowspan="2">-5°~+5°</td>
-           <td>8</td>
-           <td>-2.15</td>
-           <td>-16.13</td>
-           <td>-13.98</td>
-         </tr>
-         <tr>
-           <td>12</td>
-           <td>-2.47</td>
-           <td>-19.27</td>
-           <td>-16.80</td>
-         </tr>
+      <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 24px;">
+        <table style="width: 70%;">
+           <thead>
+           <tr>
+             <th>Degree</th>
+             <th>Frequency (GHz)</th>
+             <th>Original Average Scatter σ₀ (dBsm)</th>
+             <th>Cancelled Average Scatter σ (dBsm)</th>
+             <th>Difference σ − σ₀ (dB)</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td rowspan="2">-5°~+5°</td>
+             <td>8</td>
+             <td>-2.15</td>
+             <td>-16.13</td>
+             <td>-13.98</td>
+           </tr>
+           <tr>
+             <td>12</td>
+             <td>-2.47</td>
+             <td>-19.27</td>
+             <td>-16.80</td>
+           </tr>
 
-         <tr>
-           <td rowspan="2">-15°~+15°</td>
-           <td>8</td>
-           <td>-2.83</td>
-           <td>-10.61</td>
-           <td>-7.78</td>
-         </tr>
-         <tr>
-           <td>12</td>
-           <td>-3.02</td>
-           <td>-13.12</td>
-           <td>-10.10</td>
-         </tr>
+           <tr>
+             <td rowspan="2">-15°~+15°</td>
+             <td>8</td>
+             <td>-2.83</td>
+             <td>-10.61</td>
+             <td>-7.78</td>
+           </tr>
+           <tr>
+             <td>12</td>
+             <td>-3.02</td>
+             <td>-13.12</td>
+             <td>-10.10</td>
+           </tr>
 
-         <tr>
-           <td rowspan="2">-30°~+30°</td>
-           <td>8</td>
-           <td>-4.05</td>
-           <td>-5.21</td>
-           <td>-1.16</td>
-         </tr>
-         <tr>
-           <td>12</td>
-           <td>-4.01</td>
-           <td>-9.73</td>
-           <td>-5.72</td>
-         </tr>
-       </tbody>
-      </table>
+           <tr>
+             <td rowspan="2">-30°~+30°</td>
+             <td>8</td>
+             <td>-4.05</td>
+             <td>-5.21</td>
+             <td>-1.16</td>
+           </tr>
+           <tr>
+             <td>12</td>
+             <td>-4.01</td>
+             <td>-9.73</td>
+             <td>-5.72</td>
+           </tr>
+         </tbody>
+        </table>
 
-       <p style="font-size: 14px; color: #666; max-width: 400px; line-height: 1.5;">
-         <strong>Table 2:</strong> This table is from an experiment; where they carried out an experiment to test the method of active cancellation in a laboratory settings. The results show us that if there is a -13.98dB difference then it means the power which will be detected by the radar is around 95% less than if no active stealth technology was to be used. <a id="cite-Bai-et-al-2018-1"></a><a href="#cite-Bai-et-al-2018-1">(Bai et al, 2018)</a>
-       </p>
-     </div>
+         <p style="font-size: 14px; color: #666; max-width: 400px; line-height: 1.5;">
+           <strong>Table 2:</strong> This table is from an experiment; where they carried out an experiment to test the method of active cancellation in a laboratory settings. The results show us that if there is a -13.98dB difference then it means the power which will be detected by the radar is around 95% less than if no active stealth technology was to be used. <a id="cite-Bai-et-al-2018-1"></a><a href="#cite-Bai-et-al-2018-1">(Bai et al, 2018)</a>
+         </p>
+       </div>
 
-    <h3 id="Infrared Stealth" style="font-size: 32px;">Infrared Stealth</h3>
-    <pre id="Infrared-Stealth_InText">
+      <h3 id="Infrared Stealth" style="font-size: 32px;">Infrared Stealth</h3>
+      <pre id="Infrared-Stealth_InText">
 All objects known to man which release heat produce thermal radiation. This thermal radiation causes the atoms and electrons in the world to get excited and ionised which leads to the creation of electromagnetic waves. The electromagnetic waves are made up of visible light, infrared radiation and microwaves. Infrared radiation have a wavelength of 0.76-1000 μm. Infrared sensors and cameras can be used to see objects which may be invisible to the naked eye. To prevent an aircraft from being spotted they are coated in a 'Infrared stealth coating' <a id="cite-zhou2024-1"></a><a href="#ref-zhou2024">(Zhou et al., 2024)</a>, which is made of a carbon-based conductive film on a foam like foundation which provides conductivity which allows for the absorption of multiple of infrared waves at different frequencies<a id="cite-liu2025-1"></a><a href="#ref-liu2025">(Liu, Zhao and Han, 2025)</a>. By reducing the emissivity of an aircraft, the surface temperature needs to also be regulated to achieve 'infrared stealth', <a id="cite-kang2024-1"></a><a href="#ref-kang2024">(Kang et al., 2024)</a> this is due to Boltzmann's law which tells us that "the relationship between the emitted power P of the thermal radiation of a blackbody object and the object's temperature T is P=CTᵃ where C is a constant."  <a id="cite-wellons2007-1"></a><a href="#ref-wellons2007">(Wellons, 2007)</a>. Therefore by reducing the temperature of the aircraft the emitted power is also reduced leading to a lower infrared signature.
-    </pre>
-    <div style="display: flex; gap: 200px; align-items: flex-start; margin-top: 4px; margin-bottom: 24px;">
-      <div style="display: flex; gap: 20px; align-items: flex-start;">
-        <img src="Infrared Steath.png" alt="Infrared illustration" style="width: 400px; height: auto; border: 1px solid #ddd; padding: 4px; background: #fff;">
-        <p style="font-size: 14px; color: #666; max-width: 300px; line-height: 1.5;">
-          <strong>Figure 4:</strong> Infrared stealth reduces an aircraft's thermal signature through engine embedding, enhanced shielding of hot components, cooling and dispersal of exhaust flows, and the use of heat-diffusing surface coatings<a id="cite-jha2016-1"></a><a href="#ref-jha2016">(Jha and Aswale, 2016)</a>.
-        </p>
-      </div>
-      
-      <div style="display: flex; gap: 20px; align-items: flex-start;">
-        <img src="Infrared Stealth 2.jpg" alt="Infrared stealth 2 illustration" style="width: 600px; height: auto; border: 1px solid #ddd; padding: 4px; background: #fff;">
-        <p style="font-size: 14px; color: #666; max-width: 300px; line-height: 1.5;">
-          <strong>Figure 5:</strong> The electromagnetic spectrum where stealth is highlighted<a id="cite-zhou2021-1"></a><a href="#ref-zhou2021">(Zhou and Huang, 2021)</a>
-        </p>
-      </div>
-    </div>
+      </pre>
+      <div style="display: flex; gap: 80px; align-items: flex-start; margin-top: 4px; margin-bottom: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+          <img src="Infrared Steath.png" alt="Infrared stealth illustration" style="width: 400px; height: auto; padding: 4px; background: #fff;">
+          <p style="font-size: 14px; color: #666; max-width: 400px; line-height: 1.5; text-align: center;">
+            <strong>Figure 4:</strong> Infrared stealth reduces an aircraft's thermal signature via engine embedding, shielding of hot components, cooled/dispersed exhaust, and heat-diffusing coatings
+            <a id="cite-jha2016-1"></a><a href="#ref-jha2016">(Jha and Aswale, 2016)</a>.
+          </p>
+        </div>
 
-    <h3 id="Conclusion" style="font-size: 32px;">Conclusion</h3>
-    <pre id="Conclusion_InText">
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+          <img src="Infrared Stealth 2.jpg" alt="Infrared stealth spectrum" style="width: 600px; height: auto; padding: 4px; background: #fff;">
+          <p style="font-size: 14px; color: #666; max-width: 600px; line-height: 1.5; text-align: center;">
+            <strong>Figure 5:</strong> The electromagnetic spectrum where stealth is highlighted
+            <a id="cite-zhou2021-1"></a><a href="#ref-zhou2021">(Zhou and Huang, 2021)</a>
+          </p>
+        </div>
+      </div>
+
+      <h3 id="Conclusion" style="font-size: 32px;">Conclusion</h3>
+      <pre id="Conclusion_InText">
 Advances in stealth technology within aircraft have revolutionized modern military aviation by minimizing the detection capabilities of aircraft over electromagnetic and infrared spectra. The effectiveness of stealth depends on the integration of low-observable shaping, radar-absorbing materials, infrared signature suppression, and active cancellation methods of more recent development. All these domains operate to absorb, deflect, or neutralize detectable emissions. Although perfect invisibility is still theoretically impossible, stealth performance continues to improve through advances in materials science and signal-processing technologies. Stealth aircraft will undoubtedly remain a critical component of modern defense capability, continuously evolving as tracking and sensing systems grow increasingly sophisticated.
-    </pre>
+      </pre>
 
-    <h3 id="References">References</h3>
-    <ol>
-      <li id="ref-aronstein">Aronstein, D.C. and Piccirillo, A.C., 1997. Have Blue and the F-117A: Evolution of the Stealth Fighter. Washington, DC: American Institute of Aeronautics and Astronautics. <a href="#cite-aronstein-1">↩</a></li>
-      <li id="ref-bai2018">Bai, Y., Wu, Y., Wei, X. & Gao, C. (2018) 'Active Cancellation Stealth Technology Analysis and Verification in Experiment'. In: 2018 International Conference on Identification, Information and Knowledge in the Internet of Things (IIKI 2018). <a href="#cite-Bai-et-al-2018-1">↩</a></li>
-      <li id="ref-dranidis2003">Dranidis, D.V. (2003) 'Airborne stealth in a nutshell – Part I', Waypoint, April/May. Available at: <a href="https://img.bemil.chosun.com/nbrd/data/10040/upfile/201001/20100106104428.pdf" target="_blank">https://img.bemil.chosun.com/nbrd/data/10040/upfile/201001/20100106104428.pdf</a> (Accessed: 20 October 2025). <a href="#cite-dranidis-1">↩</a></li>
-      <li id="ref-jha2016">Jha, B.K. and Aswale, M.S. (2016) 'Mechanical aspects in stealth technology: review', International Journal of Engineering and Technical Research (IJETR), 4(4), pp. 1–4. <a href="#cite-jha2016-1">↩</a></li>
-      <li id="ref-kang2024">Kang, M., Wang, X., Wei, Y., Yu, Z. and Liu, Z. (2024) 'Latest research progress of infrared stealth textiles', Infrared Physics & Technology, 139, 105313. Available at: <a href="https://doi.org/10.1016/j.infrared.2024.105313" target="_blank">https://doi.org/10.1016/j.infrared.2024.105313</a> (Accessed: 20 October 2025). <a href="#cite-kang2024-1">↩</a></li>
-      <li id="ref-liu2025">Liu, Y., Zhao, G. and Han, G. (2025) Carbon-based conductive film-based ultralight wide-angle absorbing metamaterial with full-frequency absorption within 2–18 GHz and preparation method thereof. United States Patent Application US20250237786A1. Published 24 July. North University of China. <a href="#cite-liu2025-1">↩</a></li>
-      <li id="ref-nicolaescu">Nicolaescu, L. and Oroian, T. (2001) Radar cross section. In: Proceedings of the 5th International Conference on Telecommunications in Modern Satellite, Cable and Broadcasting Service (TELSIKS 2001). Niš, Yugoslavia, 19–21 September. pp. 65–68. <a href="#cite-nicolaescu-1">↩</a></li>
-      <li id="ref-ruiz2022">Ruiz-Perez, F., López-Estrada, S.M., Tolentino-Hernández, R.V. and Caballero-Briones, F. (2022) 'Carbon-based radar absorbing materials: A critical review', Journal of Science: Advanced Materials and Devices, 7(3), p. 100454. Available at: <a href="https://www.sciencedirect.com/science/article/pii/S2468217922000387#fig5" target="_blank">https://www.sciencedirect.com/science/article/pii/S2468217922000387#fig5</a> (Accessed: 20 October 2025). doi:10.1016/j.jsamd.2022.100454. <a href="#cite-ruiz2022-1">↩</a></li>
-      <li id="ref-setua2020">Setua, D.K., Mordina, B., Srivastava, A.K., Roy, D. & Prasad, N.E. (2020) 'Carbon nanofibers-reinforced polymer nanocomposites as efficient microwave absorber', in Han, B., Sharma, S., Nguyen, T.A., Longbiao, L. & Bhat, K.S. (eds.) Fiber-Reinforced Nanocomposites: Fundamentals and Applications. Micro and Nano Technologies. Elsevier, pp. 395–430. doi: 10.1016/B978-0-12-819904-6.00018-9.<a href="#cite-Setua-et-al-1">↩</a></li>
-      <li id="ref-wellons2007">Wellons, M., 2007. The Stefan-Boltzmann Law. Wooster Physics. [online] Available at: <a href="https://physics.wooster.edu/wp-content/uploads/2021/08/Junior-IS-Thesis-Web_2007_Wellons.pdf" target="_blank">https://physics.wooster.edu/wp/content/uploads/2021/08/Junior-IS-Thesis-Web_2007_Wellons.pdf</a> [Accessed 20 October 2025]. <a href="#cite-wellons2007-1">↩</a></li>
-      <li id="ref-xu2014">Xu, S. and Xu, Y. (2014). Research on active cancelation stealth technique. Optik, 125(20), pp.6219–6222. Available at: <a href="https://doi.org/10.1016/j.ijleo.2014.06.144" target="_blank">https://doi.org/10.1016/j.ijleo.2014.06.144</a> (Accessed: 20 October 2025). <a href="#cite-xu2014-1">↩</a></li>
-      <li id="ref-zhou2021">Zhou, Z. & Huang, J. (2021) 'Mixed design of radar/infrared stealth for advanced fighter intake and exhaust system', Aerospace Science and Technology, 110(4), p. 106490. <a href="#cite-zhou2021-1">↩</a></li>
-      <li id="ref-zhou2024">Zhou, Y., Rather, L.J., Yu, K., Yang, M., Lu, M. and Li, Q. (2024) 'Research progress and recent advances in development and applications of infrared stealth materials: A comprehensive review', Laser & Photonics Reviews, 18(12), p. 2400530. Available at: <a href="https://doi.org/10.1002/lpor.202400530" target="_blank">https://doi.org/10.1002/lpor.202400530</a> (Accessed: 20 October 2025). <a href="#cite-zhou2024-1">↩</a></li>
-      <li id="ref-zikidis2014">Zikidis, K., Skondras, A. and Tokas, C. (2014) Low observable principles, stealth aircraft and anti-stealth technologies. Hellenic Air Force (HAF).<a href="#cite-zikidis2014-1">↩</a></li>
-    </ol>
+      <h3 id="References">References</h3>
+      <ol>
+        <li id="ref-aronstein">Aronstein, D.C. and Piccirillo, A.C., 1997. Have Blue and the F-117A: Evolution of the Stealth Fighter. Washington, DC: American Institute of Aeronautics and Astronautics. <a href="#cite-aronstein-1">↩</a></li>
+        <li id="ref-bai2018">Bai, Y., Wu, Y., Wei, X. & Gao, C. (2018) 'Active Cancellation Stealth Technology Analysis and Verification in Experiment'. In: 2018 International Conference on Identification, Information and Knowledge in the Internet of Things (IIKI 2018). <a href="#cite-Bai-et-al-2018-1">↩</a></li>
+        <li id="ref-dranidis2003">Dranidis, D.V. (2003) 'Airborne stealth in a nutshell – Part I', Waypoint, April/May. Available at: <a href="https://img.bemil.chosun.com/nbrd/data/10040/upfile/201001/20100106104428.pdf" target="_blank">https://img.bemil.chosun.com/nbrd/data/10040/upfile/201001/20100106104428.pdf</a> (Accessed: 20 October 2025). <a href="#cite-dranidis-1">↩</a></li>
+        <li id="ref-jha2016">Jha, B.K. and Aswale, M.S. (2016) 'Mechanical aspects in stealth technology: review', International Journal of Engineering and Technical Research (IJETR), 4(4), pp. 1–4. <a href="#cite-jha2016-1">↩</a></li>
+        <li id="ref-kang2024">Kang, M., Wang, X., Wei, Y., Yu, Z. and Liu, Z. (2024) 'Latest research progress of infrared stealth textiles', Infrared Physics & Technology, 139, 105313. Available at: <a href="https://doi.org/10.1016/j.infrared.2024.105313" target="_blank">https://doi.org/10.1016/j.infrared.2024.105313</a> (Accessed: 20 October 2025). <a href="#cite-kang2024-1">↩</a></li>
+        <li id="ref-liu2025">Liu, Y., Zhao, G. and Han, G. (2025) Carbon-based conductive film-based ultralight wide-angle absorbing metamaterial with full-frequency absorption within 2–18 GHz and preparation method thereof. United States Patent Application US20250237786A1. Published 24 July. North University of China. <a href="#cite-liu2025-1">↩</a></li>
+        <li id="ref-nicolaescu">Nicolaescu, L. and Oroian, T. (2001) Radar cross section. In: Proceedings of the 5th International Conference on Telecommunications in Modern Satellite, Cable and Broadcasting Service (TELSIKS 2001). Niš, Yugoslavia, 19–21 September. pp. 65–68. <a href="#cite-nicolaescu-1">↩</a></li>
+        <li id="ref-ruiz2022">Ruiz-Perez, F., López-Estrada, S.M., Tolentino-Hernández, R.V. and Caballero-Briones, F. (2022) 'Carbon-based radar absorbing materials: A critical review', Journal of Science: Advanced Materials and Devices, 7(3), p. 100454. Available at: <a href="https://www.sciencedirect.com/science/article/pii/S2468217922000387#fig5" target="_blank">https://www.sciencedirect.com/science/article/pii/S2468217922000387#fig5</a> (Accessed: 20 October 2025). doi:10.1016/j.jsamd.2022.100454. <a href="#cite-ruiz2022-1">↩</a></li>
+        <li id="ref-setua2020">Setua, D.K., Mordina, B., Srivastava, A.K., Roy, D. & Prasad, N.E. (2020) 'Carbon nanofibers-reinforced polymer nanocomposites as efficient microwave absorber', in Han, B., Sharma, S., Nguyen, T.A., Longbiao, L. & Bhat, K.S. (eds.) Fiber-Reinforced Nanocomposites: Fundamentals and Applications. Micro and Nano Technologies. Elsevier, pp. 395–430. doi: 10.1016/B978-0-12-819904-6.00018-9.<a href="#cite-Setua-et-al-1">↩</a></li>
+        <li id="ref-wellons2007">Wellons, M., 2007. The Stefan-Boltzmann Law. Wooster Physics. [online] Available at: <a href="https://physics.wooster.edu/wp-content/uploads/2021/08/Junior-IS-Thesis-Web_2007_Wellons.pdf" target="_blank">https://physics.wooster.edu/wp/content/uploads/2021/08/Junior-IS-Thesis-Web_2007_Wellons.pdf</a> [Accessed 20 October 2025]. <a href="#cite-wellons2007-1">↩</a></li>
+        <li id="ref-xu2014">Xu, S. and Xu, Y. (2014). Research on active cancelation stealth technique. Optik, 125(20), pp.6219–6222. Available at: <a href="https://doi.org/10.1016/j.ijleo.2014.06.144" target="_blank">https://doi.org/10.1016/j.ijleo.2014.06.144</a> (Accessed: 20 October 2025). <a href="#cite-xu2014-1">↩</a></li>
+        <li id="ref-zhou2021">Zhou, Z. & Huang, J. (2021) 'Mixed design of radar/infrared stealth for advanced fighter intake and exhaust system', Aerospace Science and Technology, 110(4), p. 106490. <a href="#cite-zhou2021-1">↩</a></li>
+        <li id="ref-zhou2024">Zhou, Y., Rather, L.J., Yu, K., Yang, M., Lu, M. and Li, Q. (2024) 'Research progress and recent advances in development and applications of infrared stealth materials: A comprehensive review', Laser & Photonics Reviews, 18(12), p. 2400530. Available at: <a href="https://doi.org/10.1002/lpor.202400530" target="_blank">https://doi.org/10.1002/lpor.202400530</a> (Accessed: 20 October 2025). <a href="#cite-zhou2024-1">↩</a></li>
+        <li id="ref-zikidis2014">Zikidis, K., Skondras, A. and Tokas, C. (2014) Low observable principles, stealth aircraft and anti-stealth technologies. Hellenic Air Force (HAF).<a href="#cite-zikidis2014-1">↩</a></li>
+      </ol>
 
-    <div id="last-updated">Loading last update time...</div>
-    <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
-      Verify Last Modified Time
-    </button>
-    <hr>
+      <div id="last-updated">Loading last update time...</div>
+      <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+        Verify Last Modified Time
+      </button>
+      <hr>
 
-    <p id="totalWordCount"></p>
-    <hr>
+      <p id="totalWordCount"></p>
+      <hr>
 
-    <script>
-      async function getLastUpdatedTime() {
-        const username = 'FEPSFY6921464';
-        const repo = 'FY6921464';
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-        try {
-          const response = await fetch(url, {
-            method: 'GET',
-            headers: { 'Accept': 'application/vnd.github.v3+json' }
-          });
-          if (!response.ok) throw new Error(`Error fetching data: ${response.status}`);
-          const commits = await response.json();
-          if (commits && commits.length > 0) {
-            const lastCommitDate = new Date(commits[0].commit.committer.date);
-            document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
-          } else {
-            document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+      <script>
+        async function getLastUpdatedTime() {
+          const username = 'FEPSFY6921464';
+          const repo = 'FY6921464';
+          const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+          try {
+            const response = await fetch(url, {
+              method: 'GET',
+              headers: { 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (!response.ok) throw new Error(`Error fetching data: ${response.status}`);
+            const commits = await response.json();
+            if (commits && commits.length > 0) {
+              const lastCommitDate = new Date(commits[0].commit.committer.date);
+              document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+            } else {
+              document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+            }
+          } catch (error) {
+            console.error('Error fetching the last updated time:', error);
+            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
           }
-        } catch (error) {
-          console.error('Error fetching the last updated time:', error);
-          document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
         }
-      }
 
-      async function verifyLastUpdatedTime() {
-        document.getElementById('last-updated').innerText = 'Verifying...';
-        await getLastUpdatedTime();
-        alert("Last modified time has been successfully verified from GitHub API.");
-      }
+        async function verifyLastUpdatedTime() {
+          document.getElementById('last-updated').innerText = 'Verifying...';
+          await getLastUpdatedTime();
+          alert("Last modified time has been successfully verified from GitHub API.");
+        }
 
-      function displayWordCount(sectionId) {
-        const el = document.getElementById(sectionId);
-        if (!el) return 0;
-        const text = el.textContent;
-        const wordArray = text.trim().split(/\s+/);
-        return wordArray.length;
-      }
-
-      function displayTotalWordCount() {
-        const IntroductionCount = displayWordCount("Introduction_InText");
-        const shapingofaircraftchassisCount = displayWordCount("shaping-of-aircraft-chassis_InText");
-        const radarabsorbingmaterialramCount = displayWordCount("radar-absorbing-material-ram_InText");
-        const ActiveCancellationSystemCount = displayWordCount("Active-Cancellation-System_InText"); 
-        const InfraredStealthCount = displayWordCount("Infrared-Stealth_InText");
-        const ConclusionCount = displayWordCount("Conclusion_InText");
-
-        const allCaptions = document.querySelectorAll('p[style*="font-size: 14px"]');
-        let captionCount = 0;
-        allCaptions.forEach(caption => {
-          const text = caption.textContent;
+        function displayWordCount(sectionId) {
+          const el = document.getElementById(sectionId);
+          if (!el) return 0;
+          const text = el.textContent;
           const wordArray = text.trim().split(/\s+/);
-          captionCount += wordArray.length;
+          return wordArray.length;
+        }
+
+        function displayTotalWordCount() {
+          const IntroductionCount = displayWordCount("Introduction_InText");
+          const shapingofaircraftchassisCount = displayWordCount("shaping-of-aircraft-chassis_InText");
+          const radarabsorbingmaterialramCount = displayWordCount("radar-absorbing-material-ram_InText");
+          const ActiveCancellationSystemCount = displayWordCount("Active-Cancellation-System_InText"); 
+          const InfraredStealthCount = displayWordCount("Infrared-Stealth_InText");
+          const ConclusionCount = displayWordCount("Conclusion_InText");
+
+          const allCaptions = document.querySelectorAll('p[style*="font-size: 14px"]');
+          let captionCount = 0;
+          allCaptions.forEach(caption => {
+            const text = caption.textContent;
+            const wordArray = text.trim().split(/\s+/);
+            captionCount += wordArray.length;
+          });
+
+          const totalWordCount = IntroductionCount + shapingofaircraftchassisCount + radarabsorbingmaterialramCount + ActiveCancellationSystemCount + InfraredStealthCount + ConclusionCount + captionCount;
+
+          document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+        }
+
+        window.addEventListener('load', function() {
+          getLastUpdatedTime();
+          displayTotalWordCount();
         });
+      </script>
 
-        const totalWordCount = IntroductionCount + shapingofaircraftchassisCount + radarabsorbingmaterialramCount + ActiveCancellationSystemCount + InfraredStealthCount + ConclusionCount + captionCount;
-
-        document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-      }
-
-      window.addEventListener('load', function() {
-        getLastUpdatedTime();
-        displayTotalWordCount();
-      });
-    </script>
-
+    </div>
   </body>
 </html>
